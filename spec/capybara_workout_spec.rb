@@ -37,16 +37,29 @@ describe 'Capybara Workout', js: true do
 
     context 'with same text' do
 
-      scenario 'raises an error unless you specify within' do
-
+      scenario 'raises an error unless you specify within', tag: :meta do
         expect { click_button "We're the same" }.to raise_error Capybara::Ambiguous
+      end
+
+      scenario 'passes when using within syntax' do
+        within task_sections(:third) do
+          click_button "We're the same...but different"
+        end
       end
 
     end
 
+    scenario 'targeting element by id' do
+
+      ['top', 'bottom'].each do |button_id|
+        within task_sections(:fifth) do
+          click_button(button_id)
+          expect(page).to have_text "Well done, you clicked the #{button_id} button"
+        end
+      end
+    end
+
   end
-
-
 
   def workout_path
     '/workout'
