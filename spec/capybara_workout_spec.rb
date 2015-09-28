@@ -44,17 +44,18 @@ describe 'Capybara Workout', js: true do
       scenario 'passes when using within syntax' do
         within task_sections(:third) do
           click_button "We're the same...but different"
+          expect(page).to have_text "Nice one!"
         end
       end
 
     end
 
-    scenario 'targeting element by id' do
+    scenario 'targeting element by ids' do
 
       ['top', 'bottom'].each do |button_id|
         within task_sections(:fifth) do
           click_button(button_id)
-          expect(page).to have_text "Well done, you clicked the #{button_id} button"
+          expect(page).to have_text "Well done, you clicked the button with an ID"
         end
       end
     end
