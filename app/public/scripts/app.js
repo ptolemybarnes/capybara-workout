@@ -1,7 +1,12 @@
 $( document ).ready(function() { 
+  
+  var getParent = R.curry(function(parentFilter, child) {
+    return child.parent(parentFilter)
+  })
+  var getParentSection = getParent("section");
 
-  $( 'section.first button' ).click(function(button) { 
-    $('section').append("Well done!")
+  $( 'section.first button' ).click(function() { 
+    getParentSection($(this)).append("Well done!");
   });
 
 });

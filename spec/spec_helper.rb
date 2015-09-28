@@ -26,6 +26,7 @@ Capybara.app = Sinatra::Application
 Capybara.javascript_driver = :webkit
 Capybara::Webkit.configure do |config|
   config.allow_url("https://code.jquery.com/jquery-2.1.4.min.js")
+  config.allow_url("http://cdnjs.cloudflare.com/ajax/libs/ramda/0.17.1/ramda.min.js")
 end
 
 RSpec.configure do |config|
