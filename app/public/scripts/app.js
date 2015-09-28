@@ -9,4 +9,8 @@ $( document ).ready(function() {
     getParentSection($(this)).append("Well done!");
   });
 
+  $( 'section.second button' ).click(function() { 
+    getParentSection($(this)).append("Success!");
+  });
+
 });
