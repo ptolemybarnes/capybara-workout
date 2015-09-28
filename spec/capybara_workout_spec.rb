@@ -58,6 +58,16 @@ describe 'Capybara Workout', js: true do
           expect(page).to have_text "Well done, you clicked the button with an ID"
         end
       end
+
+    end
+
+    scenario 'targeting an element by class' do
+      ['top', 'bottom'].each do |button_class|
+        within task_sections(:sixth) do
+          page.find("button." + button_class).click
+          expect(page).to have_text "Well done, you clicked the button tagged with the '#{button_class}' class"
+        end
+      end
     end
 
   end

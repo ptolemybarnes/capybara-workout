@@ -24,10 +24,20 @@ var _ = (function() {
 })();
 
 $( document ).ready(function() {
- 
-  $( 'section.first button' ).click(_.appendMessageToParentSection("Well done!"));
-  $( 'section.second button' ).click(_.appendMessageToParentSection("Success!"));
-  $( 'section.third button' ).click(_.appendMessageToParentSection("Nice one!"));
-  $( 'section.fifth button'  ).click(_.appendMessageToParentSection("Well done, you clicked the button with an ID"));
+
+  var elementsAndSuccessMessages = {
+    'section.first button' : 'Well done!',
+    'section.second button'  : "Success!",
+    'section.third button'  : "Nice one!",
+    'section.fifth button'   : "Well done, you clicked the button with an ID",
+    'section.sixth button.top'  : "Well done, you clicked the button tagged with the 'top' class",
+    'section.sixth button.bottom'  : "Well done, you clicked the button tagged with the 'bottom' class",
+  }
+
+  $.each(elementsAndSuccessMessages, function(elementDescriptor, successMsg) {
+    $( elementDescriptor ).click(_.appendMessageToParentSection(successMsg));
+  });
+
+  
 });
 
