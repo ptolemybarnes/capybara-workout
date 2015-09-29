@@ -1,24 +1,15 @@
 var _ = (function() {
-  var getParent = R.curry(function(parentFilter, child) {
-    return child.parent(parentFilter)
-  })
-
-  var append    = R.curry(function(elem, target) {
-    target.append(elem)
-  });
-
   var getClickedElement = function() {
     return $( this )
   }
 
-  var getParentSection = getParent("section");
-
-  var appendMessageToParentSection = function(message) {
-    return R.compose(append(message), getParentSection, getClickedElement)
-  }
-
+  var setHTMLofElement = R.curry(function(newValue, element) {
+    element.html(newValue)
+  });
+  
   return {
-    appendMessageToParentSection: appendMessageToParentSection
+    setHTMLofElement: setHTMLofElement,
+    getClickedElement: getClickedElement
   }
 
 })();
@@ -26,18 +17,23 @@ var _ = (function() {
 $( document ).ready(function() {
 
   var elementsAndSuccessMessages = {
-    'section.first button' : 'Well done!',
-    'section.second button'  : "Success!",
-    'section.third button'  : "Nice one!",
-    'section.fifth button'   : "Well done, you clicked the button with an ID",
-    'section.sixth button.top'  : "Well done, you clicked the button tagged with the 'top' class",
-    'section.sixth button.bottom'  : "Well done, you clicked the button tagged with the 'bottom' class",
+    'div.first button' : 'Well done!',
+    'div.second button'  : "Success!",
+    'div.third button'  : "Nice one!",
+    'div.fifth button#top'   : "Well done, you clicked the button with an ID",
+    'div.fifth button#bottom' : "Well done, you clicked the button with an ID",
+    'div.sixth button.top'  : "Well done, you clicked the button tagged with the 'top' class",
+    'div.sixth button.bottom'  : "Well done, you clicked the button tagged with the 'bottom' class",
   }
 
   $.each(elementsAndSuccessMessages, function(elementDescriptor, successMsg) {
-    $( elementDescriptor ).click(_.appendMessageToParentSection(successMsg));
+    $( elementDescriptor ).one('click', R.compose(_.setHTMLofElement(successMsg), _.getClickedElement));
   });
 
-  
+  $( 'section.madlibs form submit' ).click(function(event) {
+    event.preventDefault();
+    $('body');
+  });
+
 });
 

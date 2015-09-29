@@ -17,7 +17,7 @@ describe 'Capybara Workout', js: true do
       
       scenario "first button" do
 
-        within task_sections(:first) do
+        within task_divs(:first) do
           click_button "Click me!"
           expect(page).to have_text "Well done!"
         end
@@ -26,7 +26,7 @@ describe 'Capybara Workout', js: true do
 
       scenario "second button" do
 
-        within task_sections(:second) do
+        within task_divs(:second) do
           click_button "Click on me too!"
           expect(page).to have_text "Success!"
         end
@@ -42,8 +42,8 @@ describe 'Capybara Workout', js: true do
       end
 
       scenario 'passes when using within syntax' do
-        within task_sections(:third) do
-          click_button "We're the same...but different"
+        within task_divs(:third) do
+          click_button "We're the same...but in different sections"
           expect(page).to have_text "Nice one!"
         end
       end
@@ -53,7 +53,7 @@ describe 'Capybara Workout', js: true do
     scenario 'targeting element by ids' do
 
       ['top', 'bottom'].each do |button_id|
-        within task_sections(:fifth) do
+        within task_divs(:fifth) do
           click_button(button_id)
           expect(page).to have_text "Well done, you clicked the button with an ID"
         end
@@ -63,7 +63,7 @@ describe 'Capybara Workout', js: true do
 
     scenario 'targeting an element by class' do
       ['top', 'bottom'].each do |button_class|
-        within task_sections(:sixth) do
+        within task_divs(:sixth) do
           page.find("button." + button_class).click
           expect(page).to have_text "Well done, you clicked the button tagged with the '#{button_class}' class"
         end
@@ -72,12 +72,40 @@ describe 'Capybara Workout', js: true do
 
   end
 
+  context 'madlibs' do
+
+    scenario 'filling in the madlibs form' do
+      visit workout_path
+
+      within(task_sections(:madlibs)) do 
+        {
+          name: "Ptolemy",
+          age:  "27",
+          gender: "male",
+          'favourite beverage' => 'coffee'
+        }.each do |input, value|
+          fill_in input.to_s, with: value
+        end
+        click_button "Submit"
+      end
+
+      expect(current_path).to eq "/workout_two"
+      expect(page).to have_text("Hello, Ptolemy!")
+    end
+
+  end
+
   def workout_path
     '/workout'
   end
 
-  def task_sections number
-    "section." + number.to_s
+  def task_divs number
+    "div." + number.to_s
+  end
+
+  def task_sections klass
+    "section." + klass.to_s
   end
 
 end
+

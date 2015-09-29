@@ -1,20 +1,41 @@
-%section.first
-  %button Click me!
-
-%section.second
-  %button Click on me too!
+.no-padding.centered-row
+  .container
+    %h1 Capybara Workout
+%div.centered-row
+  .container
+    %p
+      Refer to the Capybara cheat sheet and use Capybara to instruct the automated browser to click on the buttons below.
+.container.centered-row
+  .button-row
+    .first.centered-row
+      %button.button--horizontal Click me!
+    .second.centered-row
+      %button.button--horizontal Click on me too!
 
 %section.identicals
-  %section.third
-    %button We're the same...but different
-  %section.fourth
-    %button We're the same...but different
-  %section.fifth
-    %button{ id: 'top' }  We're the same but we have different IDs
-    %button{ id: 'bottom'}We're the same but we have different IDs
-  %section.sixth
-    %button{ class: 'top'    }  We're the same but we have different classes
-    %button{ class: 'bottom' }  We're the same but we have different classes
+  .third.centered-row
+    .button-row
+      %button.button--horizontal We're the same...but in different sections
+  .fourth.centered-row
+    .button-row
+      %button.button--horizontal We're the same...but in different sections
+  .fifth.centered-row
+    .button-row
+      %button.button--horizontal{ id: 'top' }   We're the same but we have different IDs
+      %button.button--horizontal{ id: 'bottom'} We're the same but we have different IDs
+  .sixth.centered-row
+    .button-row
+      %button{ class: 'top'    }  We're the same but we have different classes
+      %button{ class: 'bottom' }  We're the same but we have different classes
 
-
-
+%div.panel
+  %p Try to fill in this form!
+%section.madlibs
+  %form{ method: 'POST', action: '/madlibs' }
+    %fieldset
+      %ul
+        - [:name, :age, :gender, :hometown, :'favourite beverage'].each do |input_label|
+          %li
+            %label{ for: input_label.to_s } #{input_label.to_s}
+            %input{ type: 'text', name: input_label.to_s }
+      %input{ type: 'submit', value: "Submit" }
