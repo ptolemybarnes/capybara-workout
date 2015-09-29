@@ -4,3 +4,13 @@
       %h1 Learn to Capybara in 12 minutes
       %p Welcome to the Capybara obstacle course. Your first task is to, using Capybara, instruct the browser to click the link below.
       %a{ href: '/workout' } Start Workout!
+%section
+  .container
+    %h4 To do this, you will need to first:
+    %ol.default-ol
+      %li List `capybara` and `selenium-webdriver` in a Gemfile.
+      %li Open up *PRY* and require both `capybara` and `selenium-webdriver`.
+      %li Within the REPL, `$ include Capybara::DSL`.
+      %li Set Capybara's default driver to be selenium.
+      %li Use Capybara's `visit` command to take the automated browser to http://capybaraworkout.herokuapp.com/
+      %li Refer to a Capybara cheat sheet
