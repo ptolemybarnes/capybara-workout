@@ -17,13 +17,14 @@ var _ = (function() {
 $( document ).ready(function() {
 
   var elementsAndSuccessMessages = {
-    'div.first button' : 'Well done!',
-    'div.second button'  : "Success!",
+    'button.first' : 'Well done!',
+    'button.second'  : "Success!",
     'div.third button'  : "Nice one!",
-    'div.fifth button#top'   : "Well done, you clicked the button with an ID",
-    'div.fifth button#bottom' : "Well done, you clicked the button with an ID",
-    'div.sixth button.top'  : "Well done, you clicked the button tagged with the 'top' class",
-    'div.sixth button.bottom'  : "Well done, you clicked the button tagged with the 'bottom' class",
+    'div.fourth button'  : "Nice one!", 
+    'div.fifth button#left'   : "Well done, you clicked the button with an ID",
+    'div.fifth button#right' : "Well done, you clicked the button with an ID",
+    'div.sixth button.left'  : "Well done, you clicked the button tagged with the 'left' class",
+    'div.sixth button.right'  : "Well done, you clicked the button tagged with the 'right' class",
   }
 
   $.each(elementsAndSuccessMessages, function(elementDescriptor, successMsg) {

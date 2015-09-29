@@ -16,21 +16,13 @@ describe 'Capybara Workout', js: true do
     context 'with unique text' do
       
       scenario "first button" do
-
-        within task_divs(:first) do
-          click_button "Click me!"
-          expect(page).to have_text "Well done!"
-        end
-
+        click_button "Click me!"
+        expect(page).to have_text "Well done!"
       end
 
       scenario "second button" do
-
-        within task_divs(:second) do
-          click_button "Click on me too!"
-          expect(page).to have_text "Success!"
-        end
-
+        click_button "Click on me too!"
+        expect(page).to have_text "Success!"
       end
 
     end
@@ -52,7 +44,7 @@ describe 'Capybara Workout', js: true do
 
     scenario 'targeting element by ids' do
 
-      ['top', 'bottom'].each do |button_id|
+      ['left', 'right'].each do |button_id|
         within task_divs(:fifth) do
           click_button(button_id)
           expect(page).to have_text "Well done, you clicked the button with an ID"
@@ -62,7 +54,7 @@ describe 'Capybara Workout', js: true do
     end
 
     scenario 'targeting an element by class' do
-      ['top', 'bottom'].each do |button_class|
+      ['left', 'right'].each do |button_class|
         within task_divs(:sixth) do
           page.find("button." + button_class).click
           expect(page).to have_text "Well done, you clicked the button tagged with the '#{button_class}' class"
