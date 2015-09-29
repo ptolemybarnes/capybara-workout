@@ -5,16 +5,17 @@
   .container
     %h5
       Refer to the Capybara cheat sheet and use Capybara to instruct the automated browser to click on the buttons below.
-    %dt
+%hr
 .container.centered-row.definition-row
-  %h4 Buttons
+  %h3 Buttons
   %p These buttons can be clicked by their unique values
   .button-row
     .centered-row
       %button.button--horizontal.first Click me!
       %button.button--horizontal.second Click on me too!
+%hr
 %section.identicals.definition-row
-  %h4 Buttons: identical values
+  %h3 Buttons: identical values
   %p Try to click these buttons by their values. What error do you get? Look at using Capybara's `within` syntax
   .third.centered-row
     %h5
@@ -35,10 +36,10 @@
     %h5
       :escaped
         </section>
-
+%hr
 %section.identicals.definition-row
-  %h4 Buttons: different IDs
-  %p These buttons should be targetted by their IDs
+  %h3 Buttons: different IDs
+  %p These buttons should be targetted by their IDs. Hint: this is easier than you think.
   %h5
     :escaped
       <button id='left'>........<button id='right'>
@@ -46,9 +47,10 @@
     .button-row
       %button.button--horizontal{ id: 'left' }   We're the same but we have different IDs
       %button.button--horizontal{ id: 'right'} We're the same but we have different IDs
+%hr
 %section.identicals.definition-row
-  %h4 Buttons: different classes
-  %p These buttons should be targetted by their classes
+  %h3 Buttons: different classes
+  %p These buttons should be targetted by their classes. Hint: use the 'find' command.
   %h5
     :escaped
       <button class='left'>........<button class='right'>
@@ -57,14 +59,17 @@
       %button{ class: 'left'    }  We're the same but we have different classes
       %button{ class: 'right' }  We're the same but we have different classes
 
+%hr
 %div.panel
   %p Try to fill in this form!
-%section.madlibs
-  %form{ method: 'POST', action: '/madlibs' }
-    %fieldset
-      %ul
-        - [:name, :age, :gender, :hometown, :'favourite beverage'].each do |input_label|
-          %li
-            %label{ for: input_label.to_s } #{input_label.to_s}
-            %input{ type: 'text', name: input_label.to_s }
-      %input{ type: 'submit', value: "Submit" }
+%section
+  .container
+    %section.madlibs.form-row
+      %form{ method: 'POST', action: '/madlibs' }
+        %fieldset
+          %ul
+            - [:name, :age, :gender, :hometown, :'favourite beverage'].each do |input_label|
+              %li
+                %label{ for: input_label.to_s } #{input_label.to_s}
+                %input{ type: 'text', name: input_label.to_s }
+          %input{ type: 'submit', value: "Submit" }

@@ -31,10 +31,5 @@ $( document ).ready(function() {
     $( elementDescriptor ).one('click', R.compose(_.setHTMLofElement(successMsg), _.getClickedElement));
   });
 
-  $( 'section.madlibs form submit' ).click(function(event) {
-    event.preventDefault();
-    $('body');
-  });
-
 });
 
