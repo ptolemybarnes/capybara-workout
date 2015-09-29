@@ -1,5 +1,5 @@
 # Capybara Workout
-I created this site as a playground for students at Makers Academy to learn to use Capybara to send instructions to an automated browser.
+I created [this site](//capybaraworkout.herokuapp.com/) as a playground for students at Makers Academy to learn to use Capybara to send instructions to an automated browser.
 
 ### Tech
 I took the opportunity to explore functional javascript with the [Ramda](https://github.com/ramda/ramda) library.
