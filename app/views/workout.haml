@@ -13,6 +13,8 @@
     .centered-row
       %button.button--horizontal.first Click me!
       %button.button--horizontal.second Click on me too!
+  %bd
+  = haml :"partials/01_tips"
 %hr
 %section.identicals.definition-row
   %h3 Buttons: identical values
@@ -36,6 +38,7 @@
     %h5
       :escaped
         </section>
+  = haml :"partials/02_tips"
 %hr
 %section.identicals.definition-row
   %h3 Buttons: different IDs
@@ -47,6 +50,7 @@
     .button-row
       %button.button--horizontal{ id: 'left' }   We're the same but we have different IDs
       %button.button--horizontal{ id: 'right'} We're the same but we have different IDs
+  = haml :"partials/03_tips"
 %hr
 %section.identicals.definition-row
   %h3 Buttons: different classes
@@ -58,18 +62,21 @@
     .button-row
       %button{ class: 'left'    }  We're the same but we have different classes
       %button{ class: 'right' }  We're the same but we have different classes
-
+  = haml :"partials/04_tips"
 %hr
-%div.panel
+%section.definition-row.centered-row
+  %h3 Forms
   %p Try to fill in this form!
-%section
-  .container
-    %section.madlibs.form-row
-      %form{ method: 'POST', action: '/madlibs' }
-        %fieldset
-          %ul
-            - [:name, :age, :gender, :hometown, :'favourite beverage'].each do |input_label|
-              %li
-                %label{ for: input_label.to_s } #{input_label.to_s}
-                %input{ type: 'text', name: input_label.to_s }
-          %input{ type: 'submit', value: "Submit" }
+  = haml :"partials/05_tips"
+  %section
+    .container
+      %section.madlibs.form-row
+        %form{ method: 'POST', action: '/madlibs' }
+          %fieldset
+            %ul
+              - [:name, :age, :gender, :hometown, :'favourite beverage'].each do |input_label|
+                %li
+                  %label{ for: input_label.to_s } #{input_label.to_s}
+                  %input{ type: 'text', name: input_label.to_s }
+            .centered-row
+              %input{ type: 'submit', value: "Submit" }
