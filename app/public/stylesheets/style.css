@@ -2,3 +2,7 @@ section.canvas-container {
   width: 1000px;
 }
 
+a.start {
+  font-size: 4em;
+  text-decoration: none;
+}

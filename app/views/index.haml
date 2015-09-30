@@ -1,16 +1,41 @@
 %section.hero-splash{style: "background-image: url('images/capybara.jpg')"}
   .container
     .centered-row
-      %h1 Learn to Capybara in 12 minutes
-      %p Welcome to the Capybara obstacle course. Your first task is to, using Capybara, instruct the browser to click the link below.
-      %a{ href: '/workout' } Start Workout!
-%section.article--left
-  %article
-    %h4 To do this, you will need to first...
-    %ol.default-ol
-      %li List "capybara" and "selenium-webdriver" in a Gemfile.
-      %li Open up PRY and require both "capybara" and "selenium-webdriver".
-      %li Within the REPL, "$ include Capybara::DSL".
-      %li Set Capybara's default driver to be selenium.
-      %li Use Capybara's "visit" command to take the automated browser to http://capybaraworkout.herokuapp.com/
-      %li Refer to a Capybara cheat sheet
+      %h2 Learn to Capybara in 12 minutes
+      %p Welcome to the Capybara obstacle course.
+      %p Please read the instructions.
+%section.article
+  .container
+    %h4 Objective
+    .container 
+      %p This site is a playground for practicing sending instructions to an automated browser using Capybara.
+      %p
+    %h4 Setup
+    %p
+      Create a Gemfile listing two dependencies:
+    %pre.language-ruby
+      :escaped
+        source "https://rubygems.org"
+        gem 'capybara'
+        gem 'selenium-webdriver'
+    %p
+      Run the following in PRY or IRB:
+    %pre.language-ruby
+      :escaped
+        >> pry 
+        [1] pry(main)> require 'capybara'
+        => true
+        [2] pry(main)> require 'selenium-webdriver'
+        => true
+        [3] pry(main)> include Capybara::DSL
+        including Capybara::DSL in the global scope is not recommended!
+        => Object
+        [4] pry(main)> Capybara.default_driver = :selenium
+        => :selenium
+        [5] pry(main)> visit 'http://capybaraworkout.herokuapp.com'
+        => ""
+        [6] pry(main)>
+%section
+  %p
+    %a.start{ href: '/workout' } Start Workout!
+

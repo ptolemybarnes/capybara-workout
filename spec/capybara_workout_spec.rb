@@ -27,7 +27,7 @@ describe 'Capybara Workout', js: true do
 
     end
 
-    context 'with same text' do
+    context 'using within syntax' do
 
       scenario 'raises an error unless you specify within', tag: :meta do
         expect { click_button "We're the same" }.to raise_error Capybara::Ambiguous
