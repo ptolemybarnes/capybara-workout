@@ -46,7 +46,8 @@
       :escaped
         <section class='third'>
     .button-row
-      %button.button--horizontal We're the same...but in different sections
+      .centered-row
+        %button.button--horizontal We're the same...but in different sections
     %h5
       :escaped
         </section>
@@ -56,11 +57,12 @@
       :escaped
         <section class='fourth'>
     .button-row
-      %button.button--horizontal We're the same...but in different sections
+      .centered-row
+        %button.button--horizontal We're the same...but in different sections
     %h5
       :escaped
         </section>
-  = haml :"partials/_tips", locals: { code_tip: "pry(main)> within('section .fourth') { click_button \"We're the same...but in different sections\" }" }
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> within('section .fourth') do\n             click_button \"We're the same...but in different sections\"\n           end" }
 %hr
 
 %section.identicals.definition-row
