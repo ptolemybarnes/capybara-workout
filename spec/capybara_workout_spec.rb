@@ -7,61 +7,66 @@ describe 'Capybara Workout', js: true do
     expect(current_path).to eq "/workout"
   end
 
-  context 'clicking buttons' do
+  before do
+    visit workout_path
+  end
 
-    before do
-        visit workout_path
+  context 'clicking buttons with unique text' do
+    
+    scenario "first button" do
+      click_button "Click me!"
+      expect(page).to have_text "Well done!"
     end
 
-    context 'with unique text' do
-      
-      scenario "first button" do
-        click_button "Click me!"
-        expect(page).to have_text "Well done!"
-      end
-
-      scenario "second button" do
-        click_button "Click on me too!"
-        expect(page).to have_text "Success!"
-      end
-
+    scenario "second button" do
+      click_button "Click on me too!"
+      expect(page).to have_text "Success!"
     end
 
-    context 'using within syntax' do
+  end
 
-      scenario 'raises an error unless you specify within', tag: :meta do
-        expect { click_button "We're the same" }.to raise_error Capybara::Ambiguous
-      end
+  scenario 'choosing radio buttons by name' do
+    
+    within(task_divs(:second)) do
+      check("first")
 
-      scenario 'passes when using within syntax' do
-        within task_divs(:third) do
-          click_button "We're the same...but in different sections"
-          expect(page).to have_text "Nice one!"
-        end
-      end
+      expect(page).to have_text "Well done!"
+    end
+  end
 
+  context 'using within syntax' do
+
+    scenario 'raises an error unless you specify within', tag: :meta do
+      expect { click_button "We're the same" }.to raise_error Capybara::Ambiguous
     end
 
-    scenario 'targeting element by ids' do
-
-      ['left', 'right'].each do |button_id|
-        within task_divs(:fifth) do
-          click_button(button_id)
-          expect(page).to have_text "Well done, you clicked the button with an ID"
-        end
-      end
-
-    end
-
-    scenario 'targeting an element by class' do
-      ['left', 'right'].each do |button_class|
-        within task_divs(:sixth) do
-          page.find("button." + button_class).click
-          expect(page).to have_text "Well done, you clicked the button tagged with the '#{button_class}' class"
-        end
+    scenario 'passes when using within syntax' do
+      within task_divs(:third) do
+        click_button "We're the same...but in different sections"
+        expect(page).to have_text "Nice one!"
       end
     end
 
+  end
+
+  scenario 'targeting element by ids' do
+
+    ['left', 'right'].each do |button_id|
+      within task_divs(:fifth) do
+        click_button(button_id)
+        expect(page).to have_text "Well done, you clicked the button with an ID"
+      end
+    end
+
+  end
+
+  scenario 'targeting an element by class' do
+    ['left', 'right'].each do |button_class|
+      within task_divs(:sixth) do
+        page.find("button." + button_class).click
+        expect(page).to have_text "Well done, you clicked the button tagged with the '#{button_class}' class"
+      end
+    end
   end
 
   context 'madlibs' do

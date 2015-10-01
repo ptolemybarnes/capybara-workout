@@ -28,6 +28,7 @@ Capybara::Webkit.configure do |config|
   config.allow_url("https://code.jquery.com/jquery-2.1.4.min.js")
   config.allow_url("http://cdnjs.cloudflare.com/ajax/libs/ramda/0.17.1/ramda.min.js")
   config.allow_url("http://www.rainforest-alliance.org/sites/default/files/styles/responsive_breakpoints_theme_rainforest_wide_1x/public/slideshow/header/capybara_0.jpg?itok=G1uvWT23")
+  config.allow_url("embed.doorbell.io")
 end
 
 RSpec.configure do |config|

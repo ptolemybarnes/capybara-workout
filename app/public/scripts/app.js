@@ -6,10 +6,15 @@ var _ = (function() {
   var setHTMLofElement = R.curry(function(newValue, element) {
     element.html(newValue)
   });
+
+  var getSiblingElement = R.curry(function(targetDescriptor, element) {
+    return element.next(targetDescriptor);
+  });
   
   return {
     setHTMLofElement: setHTMLofElement,
-    getClickedElement: getClickedElement
+    getClickedElement: getClickedElement,
+    getSiblingElement: getSiblingElement
   }
 
 })();
@@ -31,5 +36,14 @@ $( document ).ready(function() {
     $( elementDescriptor ).one('click', R.compose(_.setHTMLofElement(successMsg), _.getClickedElement));
   });
 
-});
 
+  var inputsAndSuccessMessages = {
+    'div.second input.first': 'Well done!',
+    'div.second input.second': '^_^',
+  }
+
+  $.each(inputsAndSuccessMessages, function(elemDescriptor, successMsg) {
+    $( elemDescriptor ).one('click', R.compose(_.setHTMLofElement(successMsg), _.getSiblingElement("span"),_.getClickedElement));
+  });
+
+});

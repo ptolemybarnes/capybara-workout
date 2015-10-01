@@ -19,6 +19,26 @@
 %hr
 
 %section.identicals.definition-row
+  %h3 Radio Buttons
+  %p Input elements can also be selected by their 'name' attributes
+  .second.centered-row
+    %h5
+      :escaped
+        <input type='checkbox' name='first'>
+    .button-row
+      .centered-row
+        %form.radio-buttons{ name: "select-box" }
+          %ul
+            %li
+              %input.first{ type: 'checkbox', name: "first"    }
+              %span Check me!
+            %li
+              %input.second{ type: 'checkbox', name: "second"  } 
+              %span And me.
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> check('first')" }
+%hr
+
+%section.identicals.definition-row
   %h3 Buttons: identical values
   %p Try to click these buttons by their values. What error do you get? Look at using Capybara's `within` syntax
   .third.centered-row
@@ -48,7 +68,7 @@
   %p  These buttons should be targetted by their IDs. Hint: this is easier than you think.
   %h5
     :escaped
-      <button id='left'>........<button id='right'>
+      <button id='left'>
   .fifth.centered-row
     .button-row
       %button.button--horizontal{ id: 'left' } We're the same but we have different IDs
@@ -61,7 +81,7 @@
   %p These buttons should be targetted by their classes.
   %h5
     :escaped
-      <button class='left'>........<button class='right'>
+      <button class='left'>
   .sixth.centered-row
     .button-row
       %button{ class: 'left'    }  We're the same but we have different classes
