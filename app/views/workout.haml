@@ -6,16 +6,18 @@
     %h5
       Refer to the Capybara cheat sheet and use Capybara to instruct the automated browser to click on the buttons below.
 %hr
-.container.centered-row.definition-row
+
+%section.identicals.definition-row
   %h3 Buttons
   %p These buttons can be clicked by their unique values
-  .button-row
-    .centered-row
-      %button.button--horizontal.first Click me!
-      %button.button--horizontal.second Click on me too!
-  %bd
-  = haml :"partials/01_tips"
+  .first.centered-row
+    .button-row
+      .centered-row
+        %button.button--horizontal.first Click me!
+        %button.button--horizontal.second Click on me too!
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> click_button 'Click me!'" }
 %hr
+
 %section.identicals.definition-row
   %h3 Buttons: identical values
   %p Try to click these buttons by their values. What error do you get? Look at using Capybara's `within` syntax
@@ -38,23 +40,25 @@
     %h5
       :escaped
         </section>
-  = haml :"partials/02_tips"
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> within('section .fourth') { click_button \"We're the same...but in different sections\" }" }
 %hr
+
 %section.identicals.definition-row
   %h3 Buttons: different IDs
-  %p These buttons should be targetted by their IDs. Hint: this is easier than you think.
+  %p  These buttons should be targetted by their IDs. Hint: this is easier than you think.
   %h5
     :escaped
       <button id='left'>........<button id='right'>
   .fifth.centered-row
     .button-row
-      %button.button--horizontal{ id: 'left' }   We're the same but we have different IDs
+      %button.button--horizontal{ id: 'left' } We're the same but we have different IDs
       %button.button--horizontal{ id: 'right'} We're the same but we have different IDs
-  = haml :"partials/03_tips"
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> click_button \"We're the same but we have different IDs\"" }
 %hr
+
 %section.identicals.definition-row
   %h3 Buttons: different classes
-  %p These buttons should be targetted by their classes. Hint: use the 'find' command.
+  %p These buttons should be targetted by their classes.
   %h5
     :escaped
       <button class='left'>........<button class='right'>
@@ -62,12 +66,13 @@
     .button-row
       %button{ class: 'left'    }  We're the same but we have different classes
       %button{ class: 'right' }  We're the same but we have different classes
-  = haml :"partials/04_tips"
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> find('button .left').click" }
 %hr
+
 %section.definition-row.centered-row
   %h3 Forms
   %p Try to fill in this form!
-  = haml :"partials/05_tips"
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> fill_in 'name', with: 'Bob'" }
   %section
     .container
       %section.madlibs.form-row
