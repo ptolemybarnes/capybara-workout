@@ -7,6 +7,7 @@ gem 'haml'
 group :development, :test do
   gem "rspec"
   gem 'capybara'
+  gem 'launch'
   gem 'capybara-webkit'
   gem 'shotgun'
   gem 'byebug'

@@ -87,7 +87,7 @@ describe 'Capybara Workout', js: true do
       end
 
       expect(current_path).to eq "/workout_two"
-      expect(page).to have_text("Hello, Ptolemy!")
+      expect(page).to have_text("Ptolemy!")
     end
 
   end

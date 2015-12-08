@@ -2,5 +2,10 @@
 
 %section.canvas-container
   %canvas{id: "myCanvas", height: '350px', width: '1000px'}
-  %p Hello, #{(@name || "stranger")}!
+  %p 
+    Hello, #{(@name || "stranger")}!
+  %p
+    Well done for making it this far. Click
+    %a{ href: "/workout_advanced"} here
+    to continue.
 
