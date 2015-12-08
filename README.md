@@ -1,4 +1,4 @@
-# Capybara Workout
+## Capybara Workout
 I created [this site](//capybaraworkout.herokuapp.com/) as a playground for students at Makers Academy to learn to use Capybara to send instructions to an automated browser.
 
 ### Tech
