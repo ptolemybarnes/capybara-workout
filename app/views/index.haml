@@ -35,14 +35,16 @@
         %span.token.tag => true
         %span.token.tag [2] pry(main)> require 'selenium-webdriver'
         %span.token.tag => true
-        %span.token.tag [3] pry(main)> include Capybara::DSL
+        %span.token.tag [3] pry(main)> require 'capybara/dsl'
+        %span.token.tag => true
+        %span.token.tag [4] pry(main)> include Capybara::DSL
         %span.token.tag including Capybara::DSL in the global scope is not recommended!
         %span.token.tag => Object
-        %span.token.tag [4] pry(main)> Capybara.default_driver = :selenium
+        %span.token.tag [5] pry(main)> Capybara.default_driver = :selenium
         %span.token.tag => :selenium
-        %span.token.tag [5] pry(main)> visit 'http://capybaraworkout.herokuapp.com'
+        %span.token.tag [6] pry(main)> visit 'http://capybaraworkout.herokuapp.com'
         %span.token.tag => ""
-        %span.token.tag [6] pry(main)> click_link 'Start Workout!'
+        %span.token.tag [7] pry(main)> click_link 'Start Workout!'
 %section
   %p
     %a.start{ href: '/workout' } Start Workout!
