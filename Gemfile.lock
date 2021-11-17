@@ -19,8 +19,12 @@ GEM
       tilt
     matrix (0.4.2)
     mini_mime (1.1.2)
+    mini_portile2 (2.6.1)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
+      racc (~> 1.4)
     nokogiri (1.12.5-x86_64-darwin)
       racc (~> 1.4)
     public_suffix (4.0.6)
@@ -63,6 +67,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
+  ruby
   x86_64-darwin-19
   x86_64-darwin-20
 

@@ -4,10 +4,6 @@ require 'tilt/haml'
 enable :sessions
 
 get '/' do
-  haml :index, layout: :layout
-end
-
-get '/workout' do
   haml :workout, layout: :layout
 end
 
