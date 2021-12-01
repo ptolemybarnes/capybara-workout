@@ -1,23 +1,31 @@
-.grid
-  %div
-    %img{src: "/images/capybara.png"}
-  %div
-    %h1 Capybara Workout
-%div.centered-row
-  .container
-    %h5
-      Refer to the Capybara cheat sheet and use Capybara to instruct the automated browser to click on the buttons below.
-%hr
+%hgroup
+  %h2 IMPORTANT NOTICE!
+  %h3 DO NOT CLICK on any elements of this page with your mouse! (You can scroll to view the page.)
+%hgroup
+  %p 
+    As web users, we're used to using our mouse to interact with elements on a page, such as buttons, checkboxes, radio buttons, text inputs... The list goes on! But for you to be able to 
+    %em test these interactions with RSpec (or another testing framework)
+    we need the help of
+    %strong CAPYBARA!
+  %p
+    Refer to the 
+    %a{href: "https://devhints.io/capybara", target: "_blank"} Capybara cheat sheet 
+    and 
+    %strong use Capybara 
+    %em (via your terminal) 
+    to instruct the automated browser to click on the buttons below.
+  %hr
 
-%section.identicals.definition-row
-  %h3 Buttons
-  %p These buttons can be clicked by their unique values
-  .first.centered-row
-    .button-row
-      .centered-row
-        %button.button--horizontal.first Click me!
-        %button.button--horizontal.second Click on me too!
+%section
+  %hgroup
+    %h3 Buttons
+    %h4 You can make Capybara click on these buttons by using their unique values!
+
   = haml :"partials/_tips", locals: { code_tip: "pry(main)> click_button 'Click me!'" }
+
+  .grid
+    %button.celebrate.button--horizontal.first{ id: "button-one"} Click me!
+    %button.celebrate.button--horizontal.second Click on me too!
 %hr
 
 %section.identicals.definition-row
@@ -49,7 +57,7 @@
         <section class='third'>
     .button-row
       .centered-row
-        %button.button--horizontal We're the same...but in different sections
+        %button.celebrate.button--horizontal We're the same...but in different sections
     %h5
       :escaped
         </section>
@@ -60,7 +68,7 @@
         <section class='fourth'>
     .button-row
       .centered-row
-        %button.button--horizontal We're the same...but in different sections
+        %button.celebrate.button--horizontal We're the same...but in different sections
     %h5
       :escaped
         </section>
@@ -75,8 +83,8 @@
       <button id='left'>
   .fifth.centered-row
     .button-row
-      %button.button--horizontal{ id: 'left' } We're the same but we have different IDs
-      %button.button--horizontal{ id: 'right'} We're the same but we have different IDs
+      %button.celebrate.button--horizontal{ id: 'left' } We're the same but we have different IDs
+      %button.celebrate.button--horizontal{ id: 'right'} We're the same but we have different IDs
   = haml :"partials/_tips", locals: { code_tip: "pry(main)> click_button \"We're the same but we have different IDs\"" }
 %hr
 
