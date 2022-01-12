@@ -29,4 +29,7 @@ body {
 .clicked {
   animation: colorPulse 1s infinite alternate; }
 
+pre code {
+  line-height: 0em; }
+
 /*# sourceMappingURL=capybara-style.css.map */
