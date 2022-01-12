@@ -1,0 +1,32 @@
+@keyframes colorPulse {
+  0% {
+    background-color: #D16BA5; }
+  25% {
+    background-color: #aa8fd8; }
+  50% {
+    background-color: #86A8E7; }
+  75% {
+    background-color: #52cffe; }
+  100% {
+    background-color: #5FFBF1; } }
+.capybara-logo {
+  max-width: 100px;
+  margin-right: 20px;
+  margin-left: 20px; }
+
+button {
+  background-color: #ff0081;
+  border: none; }
+
+.page-title {
+  display: inline-block; }
+
+body {
+  font-size: 16px;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  text-align: center; }
+
+.clicked {
+  animation: colorPulse 1s infinite alternate; }
+
+/*# sourceMappingURL=capybara-style.css.map */
