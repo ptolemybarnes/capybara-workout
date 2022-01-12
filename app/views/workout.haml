@@ -1,20 +1,21 @@
-%hgroup
-  %h2 IMPORTANT NOTICE!
-  %h3 DO NOT CLICK on any elements of this page with your mouse! (You can scroll to view the page.)
-%hgroup
-  %p 
-    As web users, we're used to using our mouse to interact with elements on a page, such as buttons, checkboxes, radio buttons, text inputs... The list goes on! But for you to be able to 
-    %em test these interactions with RSpec (or another testing framework)
-    we need the help of
-    %strong CAPYBARA!
-  %p
-    Refer to the 
-    %a{href: "https://devhints.io/capybara", target: "_blank"} Capybara cheat sheet 
-    and 
-    %strong use Capybara 
-    %em (via your terminal) 
-    to instruct the automated browser to click on the buttons below.
-  %hr
+%section
+  %hgroup
+    %h2 IMPORTANT NOTICE!
+    %h3 DO NOT CLICK on any elements of this page with your mouse! (You can scroll to view the page.)
+  %hgroup
+    %p 
+      As web users, we're used to using our mouse to interact with elements on a page, such as buttons, checkboxes, radio buttons, text inputs... The list goes on! But for you to be able to 
+      %em test these interactions with RSpec (or another testing framework)
+      we need the help of
+      %strong CAPYBARA!
+    %p
+      Refer to the 
+      %a{href: "https://devhints.io/capybara", target: "_blank"} Capybara cheat sheet 
+      and 
+      %strong use Capybara 
+      %em (via your terminal) 
+      to instruct the automated browser to click on the buttons below.
+    %hr
 
 %section
   %hgroup
@@ -26,27 +27,33 @@
   .grid
     %button{ id: "button-one"} Click me!
     %button{ id: "button-two"} Click on me too!
-%hr
+  
+  %hr
 
-%section.identicals.definition-row
-  %h3 Radio Buttons
-  %p Input elements can also be selected by their 'name' attributes
-  .second.centered-row
-    %h5
-      :escaped
-        <input type='checkbox' name='first'>
-    .button-row
-      .centered-row
-        %form.radio-buttons{ name: "select-box" }
-          %ul
-            %li
-              %input.first{ type: 'checkbox', name: "first"    }
-              %span Check me!
-            %li
-              %input.second{ type: 'checkbox', name: "second"  } 
-              %span And me.
+%section
+  %hgroup
+    %h3 Radio Buttons
+    %p 
+      Input elements can also be selected by their 'name' attributes:
+      %span{class: 'outer-highlight'}
+        :escaped
+          <input type='checkbox' 
+        %span{class: 'inner-highlight'}
+          :escaped
+            name='first'
+        >
+
   = haml :"partials/_tips", locals: { code_tip: "pry(main)> check('first')" }
-%hr
+
+  %fieldset
+    %label{:for => "first"}
+      %input#terms{:name => "first", :type => "checkbox"}/
+      Check me!
+    %label{:for => "second"}
+      %input#terms_sharing{:name => "second", :type => "checkbox"}/
+      And me!
+
+  %hr
 
 %section.identicals.definition-row
   %h3 Buttons: identical values

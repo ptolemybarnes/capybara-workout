@@ -32,4 +32,10 @@ body {
 pre code {
   line-height: 0em; }
 
+.outer-highlight {
+  color: #aa8fd8; }
+
+.inner-highlight {
+  color: #ff0081; }
+
 /*# sourceMappingURL=capybara-style.css.map */
