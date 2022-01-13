@@ -32,7 +32,7 @@
 
 %section
   %hgroup
-    %h3 Radio Buttons
+    %h3 Checkboxes
     %p 
       Input elements can also be selected by their 'name' attributes:
       %span{class: 'outer-highlight'}
@@ -43,14 +43,14 @@
             name='first'
         >
 
-  = haml :"partials/_tips", locals: { code_tip: "pry(main)> check('first')" }
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> check('first-checkbox')" }
 
   %fieldset
-    %label{:for => "first"}
-      %input#terms{:name => "first", :type => "checkbox"}/
+    %label{:for => "first-checkbox"}
+      %input{:name => "first-checkbox", :type => "checkbox"}/
       Check me!
-    %label{:for => "second"}
-      %input#terms_sharing{:name => "second", :type => "checkbox"}/
+    %label{:for => "second-checkbox"}
+      %input{:name => "second-checkbox", :type => "checkbox"}/
       And me!
 
   %hr
