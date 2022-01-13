@@ -22,7 +22,7 @@
     %h3 Buttons
     %h4 You can make Capybara click on these buttons by using their unique values!
 
-  = haml :"partials/_tips", locals: { code_tip: "pry(main)> click_button 'Click me!'" }
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> click_button('Click me!')" }
 
   .grid
     %button{ id: "button-one"} Click me!
@@ -33,15 +33,13 @@
 %section
   %hgroup
     %h3 Checkboxes
-    %p 
-      Input elements can also be selected by their 'name' attributes:
-      %span{class: 'outer-highlight'}
-        :escaped
-          <input type='checkbox' 
-        %span{class: 'inner-highlight'}
-          :escaped
-            name='first'
-        >
+    %p Input elements can also be selected by their 'name' attributes:
+    %p
+      :escaped
+        <input type="checkbox"
+      = surround 'name="', '">' do
+        %span.inner-highlight first-checkbox
+      
 
   = haml :"partials/_tips", locals: { code_tip: "pry(main)> check('first-checkbox')" }
 
@@ -52,35 +50,47 @@
     %label{:for => "second-checkbox"}
       %input{:name => "second-checkbox", :type => "checkbox"}/
       And me!
-
   %hr
 
-%section.identicals.definition-row
+%section
   %h3 Buttons: identical values
-  %p Try to click these buttons by their values. What error do you get? Look at using Capybara's `within` syntax
-  .third.centered-row
-    %h5
-      :escaped
-        <section class='third'>
-    .button-row
-      .centered-row
-        %button.celebrate.button--horizontal We're the same...but in different sections
-    %h5
-      :escaped
-        </section>
+  %p Try to click these buttons by their values. What error do you get? 
+
+  .grid
+  %section.banana
+    %button{ id: "button-three"}  Same button, different section
+  %section.apple
+    %button{ id: "button-three"}  Same button, different section
+
+  %p 
+    Look at using Capybara's
+    %a{href: 'https://www.rubydoc.info/github/jnicklas/capybara/Capybara%2FSession:within'} 
+      'within' syntax
+    and use the name of the 
+    %span.outer-highlight 
+      %em element 
+    along with the name of the 
+    %span.inner-highlight 
+      %em class
+    you can be very specific about which button you are referring to:
+    
+  %p
+    :escaped
+      <
+    %span.outer-highlight section
+    :escaped
+    = surround 'class="', '"' do
+      %span.inner-highlight banana
+    >
+
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> within('section.banana') do\n click_button(\"Same button, different section\")\n end" }
+  
+  %p 
+    When you've got the code in the example working, see if you can figure out how to click on the second button.
+
+
+
   %hr
-  .fourth.centered-row
-    %h5
-      :escaped
-        <section class='fourth'>
-    .button-row
-      .centered-row
-        %button.celebrate.button--horizontal We're the same...but in different sections
-    %h5
-      :escaped
-        </section>
-  = haml :"partials/_tips", locals: { code_tip: "pry(main)> within('section .fourth') do\n             click_button \"We're the same...but in different sections\"\n           end" }
-%hr
 
 %section.identicals.definition-row
   %h3 Buttons: different IDs
