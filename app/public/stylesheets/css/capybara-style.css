@@ -29,10 +29,6 @@ body {
 .clicked {
   animation: colorPulse 1s infinite alternate; }
 
-pre code {
-  line-height: 1.5em;
-  text-align: left; }
-
 .outer-highlight {
   color: #aa8fd8; }
 

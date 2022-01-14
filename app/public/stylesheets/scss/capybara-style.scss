@@ -9,11 +9,11 @@ $button-text-color: #ffffff;
 $baby-blue: #f8faff;
 
 @keyframes colorPulse {
-      0% {background-color: $pink;}
-    25% {background-color: $lilac;}
-    50% {background-color: $cornflower;}
-    75% {background-color: $sky;}
-    100% {background-color: $mint;}
+    0% {background-color: $pink;}
+  25% {background-color: $lilac;}
+  50% {background-color: $cornflower;}
+  75% {background-color: $sky;}
+  100% {background-color: $mint;}
 }
 
 .capybara-logo {
@@ -39,13 +39,6 @@ body{
 
 .clicked {
   animation: colorPulse 1s infinite alternate;
-}
-
-pre {
-  code {
-    line-height: 1.5em;
-    text-align: left;
-  }
 }
 
 .outer-highlight {

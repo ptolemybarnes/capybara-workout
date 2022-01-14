@@ -57,10 +57,10 @@
   %p Try to click these buttons by their values. What error do you get? 
 
   .grid
-  %section.banana
-    %button{ id: "button-three"}  Same button, different section
-  %section.apple
-    %button{ id: "button-three"}  Same button, different section
+  %div.banana
+    %button{ id: "button-three"}  Same button, different div
+  %div.apple
+    %button{ id: "button-three"}  Same button, different div
 
   %p 
     Look at using Capybara's
@@ -77,19 +77,16 @@
   %p
     :escaped
       <
-    %span.outer-highlight section
+    %span.outer-highlight div
     :escaped
     = surround 'class="', '"' do
       %span.inner-highlight banana
     >
 
-  = haml :"partials/_tips", locals: { code_tip: "pry(main)> within('section.banana') do\n click_button(\"Same button, different section\")\n end" }
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> within('div.banana') do\n  click_button(\"Same button, different div\")\nend" }
   
   %p 
     When you've got the code in the example working, see if you can figure out how to click on the second button.
-
-
-
   %hr
 
 %section.identicals.definition-row
