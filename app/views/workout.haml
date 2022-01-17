@@ -3,17 +3,17 @@
     %h2 IMPORTANT NOTICE!
     %h3 DO NOT CLICK on any elements of this page with your mouse! (You can scroll to view the page.)
   %hgroup
-    %p 
-      As web users, we're used to using our mouse to interact with elements on a page, such as buttons, checkboxes, radio buttons, text inputs... The list goes on! But for you to be able to 
+    %p
+      As web users, we're used to using our mouse to interact with elements on a page, such as buttons, checkboxes, radio buttons, text inputs... The list goes on! But for you to be able to
       %em test these interactions with RSpec (or another testing framework)
       we need the help of
       %strong CAPYBARA!
     %p
-      Refer to the 
-      %a{href: "https://devhints.io/capybara", target: "_blank"} Capybara cheat sheet 
-      and 
-      %strong use Capybara 
-      %em (via your terminal) 
+      Refer to the
+      %a{href: "https://devhints.io/capybara", target: "_blank"} Capybara cheat sheet
+      and
+      %strong use Capybara
+      %em (via your terminal)
       to instruct the automated browser to click on the buttons below.
     %hr
 
@@ -27,7 +27,7 @@
   .grid
     %button{ id: "button-one"} Click me!
     %button{ id: "button-two"} Click on me too!
-  
+
   %hr
 
 %section
@@ -39,7 +39,7 @@
         <input type="checkbox"
       = surround 'name="', '">' do
         %span.inner-highlight first-checkbox
-      
+
 
   = haml :"partials/_tips", locals: { code_tip: "pry(main)> check('first-checkbox')" }
 
@@ -52,28 +52,71 @@
       And me!
   %hr
 
+
+
 %section
-  %h3 Buttons: identical values
-  %p Try to click these buttons by their values. What error do you get? 
+  %h3 Buttons: different classes
+  %p
+    These buttons can be targeted by their classes, using the
+    %span.inner-highlight
+      %em find
+    command:
 
   .grid
-  %div.banana
-    %button{ id: "button-three"}  Same button, different div
-  %div.apple
-    %button{ id: "button-three"}  Same button, different div
+    %button.london  Same button, different class
+    %button.barcelona  Same button, different class
 
-  %p 
+  %p
     Look at using Capybara's
-    %a{href: 'https://www.rubydoc.info/github/jnicklas/capybara/Capybara%2FSession:within'} 
+    %a{href: 'https://rubydoc.info/github/jnicklas/capybara/Capybara/Node/Finders:find'}
+      'find' syntax
+    and use the name of the
+    %span.outer-highlight
+      %em html element
+    along with the name of the
+    %span.inner-highlight
+      %em class,
+    you can be very specific about which button you are referring to:
+
+  %p
+    :escaped
+      <
+    %span.outer-highlight button
+    :escaped
+    = surround 'class="', '"' do
+      %span.inner-highlight london
+    >
+
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> find('button.london').click" }
+
+  %p
+    When you've got the code in the example working, see if you can figure out how to click on the second button.
+  %hr
+
+%section
+  %h3 Buttons: identical values
+  %p Here you can see what a potential minefield this might be. Some of these buttons we don't want to click on. Try to click on some of these buttons by their values. What error do you get?
+
+  .grid
+    %div.banana
+      %button  Same button, different div
+      %button  Don't click on me please
+    %div.apple
+      %button  Same button, different div
+      %button  Don't click on me please
+
+  %p
+    Look at using Capybara's
+    %a{href: 'https://www.rubydoc.info/github/jnicklas/capybara/Capybara%2FSession:within'}
       'within' syntax
-    and use the name of the 
-    %span.outer-highlight 
-      %em element 
-    along with the name of the 
-    %span.inner-highlight 
+    and use the name of the
+    %span.outer-highlight
+      %em element
+    along with the name of the
+    %span.inner-highlight
       %em class
     you can be very specific about which button you are referring to:
-    
+
   %p
     :escaped
       <
@@ -84,9 +127,22 @@
     >
 
   = haml :"partials/_tips", locals: { code_tip: "pry(main)> within('div.banana') do\n  click_button(\"Same button, different div\")\nend" }
-  
-  %p 
+
+  %p
     When you've got the code in the example working, see if you can figure out how to click on the second button.
+
+  %blockquote
+    Can you click on these buttons using the 'find' technique from before,
+    %em without
+    clicking on the "Don't click on me please" buttons? If so, why did that work? What happens if we shake up the previous button set?
+
+  .grid
+    %div.orange
+      %button  I want to be clicked!
+      %button.do-not-click  🚫 Don't click on me please 🚫
+    %div.mango
+      %button  I want to be clicked!
+      %button.do-not-click  🚫 Don't click on me please 🚫
   %hr
 
 %section.identicals.definition-row

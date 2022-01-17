@@ -26,7 +26,11 @@ button {
   background-color: $button-bg;
   border: none;
 }
-  
+
+.do-not-click {
+  background-color: black !important;
+}
+
 .page-title {
   display: inline-block;
 }

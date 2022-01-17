@@ -18,6 +18,9 @@ button {
   background-color: #ff0081;
   border: none; }
 
+.do-not-click {
+  background-color: black !important; }
+
 .page-title {
   display: inline-block; }
 
