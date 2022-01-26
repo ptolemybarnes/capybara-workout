@@ -6,7 +6,6 @@ if(allButtons) {
         button.addEventListener("click", () => {
             button.classList.add('clicked');
             if(button.classList.contains("do-not-click")) {
-                console.log('whoop');
                 button.innerHTML = "😔 I was clicked against my wishes! 😔";
             } else {
                 button.innerHTML = "You clicked me!";

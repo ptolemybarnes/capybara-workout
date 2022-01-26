@@ -16,6 +16,10 @@ $baby-blue: #f8faff;
   100% {background-color: $mint;}
 }
 
+.center {
+  text-align: center;
+}
+
 .capybara-logo {
   max-width: 100px;
   margin-right: 20px;
@@ -35,12 +39,6 @@ button {
   display: inline-block;
 }
 
-body{
-  font-size: 16px;
-  font-family: 'Helvetica', 'Arial', sans-serif;
-  text-align: center;
-}
-
 .clicked {
   animation: colorPulse 1s infinite alternate;
 }
@@ -51,4 +49,62 @@ body{
 
 .inner-highlight {
   color: $fuschia;
+}
+
+.section-title {
+    background: $fuschia;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $cornflower, $sky);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $cornflower, $sky); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
+    text-transform: uppercase;
+    padding: 1em;
+    margin-bottom: 1em;
+
+    h3, h4 {
+      // color: #2f4866;
+      color: white;
+    }
+
+    h3 {
+      margin-bottom: 0.5em;
+    }
+
+    h4 {
+      font-style: italic;
+    }
+}
+
+.section-title:before {
+    content: "🎽 WORKOUT: ";
+}
+
+.section-title:after {
+  content: " 🎽";
+}
+
+.capybara-targets {
+  padding: 1em 0;
+  border-top: dotted 2px $cornflower;
+  border-bottom: dotted 2px $cornflower;
+  margin-bottom: 2em;
+
+  button {
+    margin: 0;
+  }
+}
+
+pre[class*=language-] {
+  margin: 0 0 1.5em 0;
+}
+
+details {
+  summary {
+    font-size: 0.75em;
+    font-style: italic;
+  }
+
+  summary:before {
+    content: "💡 ";
+    font-style: normal;
+  }
 }

@@ -1,0 +1,126 @@
+<section class="center">
+  <hgroup>
+    <h2>IMPORTANT NOTICE!</h2>
+    <h3>DO NOT CLICK on any elements of this page with your mouse! (You can scroll to view the page.)</h3>
+  </hgroup>
+  <p>
+    As web users, we're used to using our mouse to interact with elements on a page, such as buttons, checkboxes, radio buttons, text inputs... The list goes on! But for you to be able to
+    <em>test these interactions with RSpec (or another testing framework)</em>
+    we need the help of
+    <strong>CAPYBARA!</strong>
+  </p>
+  <p>
+    Refer to the <a href="https://devhints.io/capybara" target="_blank">Capybara cheat sheet</a> and <mark><strong>use Capybara</strong> <em>(via your terminal)</em></mark> to instruct the automated browser to click on the buttons below.
+  </p>
+</section>
+<section>
+  <h3 class="section-title">Buttons</h3>
+  <p>
+    You can make Capybara click on buttons by using their unique values!
+  </p>
+  <p>
+    Take a look at the HTML for the two buttons in this section. We need to figure out what's unique about each button so that we can ask Capybara to find it and click on it for us. And what might that be? Well, the text value of each button is different...
+  </p>
+  <pre class="line-numbers language-html code-snippet-margin">
+    <code>
+      &lt;div class=&quot;grid capybara-targets&quot;&gt;
+        &lt;button&gt;Click me!&lt;/button&gt;
+        &lt;button&gt;Click on me too!&lt;/button&gt;
+      &lt;/div&gt;
+    </code>
+  </pre>
+  <p>
+    Check the documentation (or cheat sheet) to see if you can find a command to <mark>make Capybara click on the following buttons</mark>, using their text value to identify them.
+  </p>
+  <div class="grid capybara-targets">
+    <button>Click me!</button>
+    <button>Click on me too!</button>
+  </div>
+  <details>
+    <summary class="answer-shield">Want to see if we got the same answer? Click here!</summary>
+    <%= haml :"partials/_tips", locals: { code_tip: "click_button('Click me!')" } %>
+  </details>
+</section>
+<section>
+  <h3 class="section-title">Buttons (different IDs)</h3>
+  <p>
+    <span class="outer-highlight">HTML elements</span> (such as buttons), can have an <span class="inner-highlight"><em>attribute</em></span> called 'id'.
+  </p>
+  <pre class="line-numbers language-html code-snippet-margin">
+    <code>
+      &lt;div class=&quot;grid capybara-targets&quot;&gt;
+        &lt;button id=&quot;coffee&quot;&gt;Same button, different ID&lt;/button&gt;
+        &lt;button id=&quot;tea&quot;&gt;Same button, different ID&lt;/button&gt;
+      &lt;/div&gt;
+    </code>
+  </pre>
+  <p>The next two buttons can be targeted by their IDs (there is more than one way to achieve this).</p>
+  <div class="grid capybara-targets">
+    <button id="coffee">Same button, different ID</button>
+    <button id="tea">Same button, different ID</button>
+  </div>
+  <details>
+    <summary class="answer-shield">Want to see if we got the same answer? Click here!</summary>
+    <%= haml :"partials/_tips", locals: { code_tip: "click_on({id: 'coffee'})" } %>
+  </details>
+</section>
+<section>
+  <h3 class="section-title">Buttons (different classes)</h3>
+  <p>
+    These buttons can be targeted by their <span class="outer-highlight">class</span>, using the <span class="inner-highlight"><em>find</em></span> command. Look at using Capybara's <a href="https://rubydoc.info/github/jnicklas/capybara/Capybara/Node/Finders:find">'find' syntax</a> and using the name of the <strong>html element</strong> along with the name of the <span class="outer-highlight">class,</span> you can be very specific about which button you are referring to:
+  </p>
+  <pre class="line-numbers language-html code-snippet-margin">
+    <code>
+      &lt;div class=&quot;grid capybara-targets&quot;&gt;
+        &lt;button class=&quot;london&quot;&gt;Same button, different class&lt;/button&gt;
+        &lt;button class=&quot;barcelona&quot;&gt;Same button, different class&lt;/button&gt;
+      &lt;/div&gt;
+    </code>
+  </pre>
+  <div class="grid capybara-targets">
+    <button class="london">Same button, different class</button>
+    <button class="barcelona">Same button, different class</button>
+  </div>
+  <details>
+    <summary class="answer-shield">Want to see if we got the same answer? Click here!</summary>
+    <%= haml :"partials/_tips", locals: { code_tip: "find('button.london').click" } %>
+  </details>
+</section>
+
+<section>
+  <h3 class="section-title">Buttons (identical values)</h3>
+  <p>
+    Here you can see what a potential minefield this might be. Some of these buttons we don't want to click on. Try to have Capybara click on some of these buttons by their values. What error do you get?
+  </p>
+  <pre class="line-numbers language-html code-snippet-margin">
+    <code>
+      &lt;div class=&quot;grid&quot;&gt;
+        &lt;div class=&quot;grid banana&quot;&gt;
+          &lt;button class=&quot;do-not-click&quot;&gt;💀 Don't click on me please 💀&lt;/button&gt;
+          &lt;button&gt;Same button, different div&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;apple&quot;&gt;
+          &lt;button class=&quot;do-not-click&quot;&gt;💀 Don't click on me please 💀&lt;/button&gt;
+          &lt;button&gt;Same button, different div&lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    </code>
+  </pre>
+  <p>
+    Look at using Capybara's <a href="https://www.rubydoc.info/github/jnicklas/capybara/Capybara%2FSession:within">'within' syntax.</a> You can use the name of the containing <span class="outer-highlight"><em>element</em></span> along with the name of the <span class="inner-highlight">class,</span> to specify which button you are referring to:
+  </p>
+  <div class="grid">
+    <div class="grid banana">
+      <button class="do-not-click">💀 Don't click on me please 💀</button>
+      <button>Same button, different div</button>
+    </div>
+    <div class="apple">
+      <button class="do-not-click">💀 Don't click on me please 💀</button>
+      <button>Same button, different div</button>
+    </div>
+  </div>
+  <details>
+    <summary class="answer-shield">Want to see if we got the same answer? Click here!</summary>
+    <%= haml :"partials/_tips", locals: { code_tip: "within('div.banana') do\n  click_button(\"Same button, different div\")\nend" } %>
+  </details>
+</section>

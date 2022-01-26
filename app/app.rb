@@ -4,7 +4,7 @@ require 'tilt/haml'
 enable :sessions
 
 get '/' do
-  haml :workout, layout: :layout
+  erb :workout, layout: :layout
 end
 
 post '/madlibs' do
