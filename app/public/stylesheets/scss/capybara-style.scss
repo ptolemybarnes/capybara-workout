@@ -52,14 +52,12 @@ button {
   color: $fuschia;
 }
 
-.section-title, .instructions {
+.section-title, .instructions, .congratulations {
     background: $leaf;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, $cornflower, $sky);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, $cornflower, $sky); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    font-family: 'Shrikhand';
     text-align: center;
     font-size: 2em;
-    letter-spacing: 0.04em;
     text-transform: capitalize;
     padding: 1em;
     margin-bottom: 1em;
@@ -74,7 +72,39 @@ button {
     }
 }
 
+.instructions {
+  font-family: 'Shrikhand';
+  letter-spacing: 0.04em;
+}
+
+.section-title, .notice, .congratulations {
+  font-family: 'Barlow Condensed';
+}
+
+.notice {
+  color: $fuschia;
+}
+
+.congratulations {
+  background: none;
+  background-color: $fuschia;
+  color: white;
+}
+
+.congratulations:before {
+  content: "🎉 "
+}
+
+.congratulations:after {
+  content: " 🎉"
+}
+
 .section-title:before {
+  font-family: 'Barlow Condensed';
+  font-weight: 700;
+  text-transform: capitalize;
+  color: white;
+  letter-spacing: 0px;
   content: "🎽 WORKOUT: ";
 }
 

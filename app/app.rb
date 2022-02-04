@@ -12,7 +12,6 @@ get '/workout' do
 end
 
 post '/finish' do
-  p params
   session[:your_name] = params[:your_name]
   session[:coach_name] = params[:coach_name]
   redirect '/finish'
