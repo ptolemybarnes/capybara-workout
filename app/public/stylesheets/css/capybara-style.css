@@ -37,7 +37,7 @@ button {
 .inner-highlight {
   color: #ff0081; }
 
-.section-title {
+.section-title, .instructions {
   background: #ff0081;
   /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #86A8E7, #52cffe);
@@ -48,11 +48,11 @@ button {
   text-transform: uppercase;
   padding: 1em;
   margin-bottom: 1em; }
-  .section-title h3, .section-title h4 {
+  .section-title h3, .section-title h4, .instructions h3, .instructions h4 {
     color: white; }
-  .section-title h3 {
+  .section-title h3, .instructions h3 {
     margin-bottom: 0.5em; }
-  .section-title h4 {
+  .section-title h4, .instructions h4 {
     font-style: italic; }
 
 .section-title:before {
@@ -78,5 +78,8 @@ details summary {
 details summary:before {
   content: "💡 ";
   font-style: normal; }
+
+.heading {
+  text-align: center; }
 
 /*# sourceMappingURL=capybara-style.css.map */

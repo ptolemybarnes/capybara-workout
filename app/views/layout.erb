@@ -14,25 +14,25 @@
     <meta content="#da532c" name="msapplication-TileColor"/>
     <meta content="#ffffff" name="theme-color"/>
   </head>
-  <body class="container"></body>
-  <section>
-    <div class="heading">
-      <img class="capybara-logo" src="/images/capybara.png"/>
-      <h1 class="page-title">Welcome to The Capybara Workout</h1>
-      <img class="capybara-logo" src="/images/capybara.png"/>
+  <body class="container">
+    <section>
+      <div class="heading">
+        <img class="capybara-logo" src="/images/capybara.png"/>
+        <% if @your_name && @coach_name %>
+          <h1 class="page-title">Capybara Workout</h1>
+        <% else %>
+          <h1 class="page-title">Welcome to The Capybara Workout</h1>
+        <% end %>
+        <img class="capybara-logo" src="/images/capybara.png"/>
+      </div>
+    </section>
+    <div>
+      <%= yield %>
     </div>
-    <%= yield %>
-  </section>
-  <div>
-    Icons made by
-    <a href="https://www.freepik.com" title="Freepik">Freepik</a>
-    from
-    <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
-    Pattern vector created by
-    <a href="https://www.freepik.com/vectors/pattern">studiogstock</a>
-    <script src="/scripts/bye-jquery.js" type="text/javascript"></script>
-    <script src="/scripts/prism.js" type="text/javascript"></script>
-  </div>
-  <body></body>
+    <footer>
+      <a href='https://www.freepik.com/vectors/nature'>Capybara vector created by www.freepik.com</a>
+      <script src="/scripts/capyscript.js" type="text/javascript"></script>
+      <script src="/scripts/prism.js" type="text/javascript"></script>
+    </footer>
+  </body>
 </html>
-<html></html>

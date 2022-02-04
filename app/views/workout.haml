@@ -1,164 +1,164 @@
--# %section
--#   %hgroup
--#     %h2 IMPORTANT NOTICE!
--#     %h3 DO NOT CLICK on any elements of this page with your mouse! (You can scroll to view the page.)
--#   %hgroup
--#     %p
--#       As web users, we're used to using our mouse to interact with elements on a page, such as buttons, checkboxes, radio buttons, text inputs... The list goes on! But for you to be able to
--#       %em test these interactions with RSpec (or another testing framework)
--#       we need the help of
--#       %strong CAPYBARA!
--#     %p
--#       Refer to the
--#       %a{href: "https://devhints.io/capybara", target: "_blank"} Capybara cheat sheet
--#       and
--#       %strong use Capybara
--#       %em (via your terminal)
--#       to instruct the automated browser to click on the buttons below.
--#   %hr
+%section
+  %hgroup
+    %h2 IMPORTANT NOTICE!
+    %h3 DO NOT CLICK on any elements of this page with your mouse! (You can scroll to view the page.)
+  %hgroup
+    %p
+      As web users, we're used to using our mouse to interact with elements on a page, such as buttons, checkboxes, radio buttons, text inputs... The list goes on! But for you to be able to
+      %em test these interactions with RSpec (or another testing framework)
+      we need the help of
+      %strong CAPYBARA!
+    %p
+      Refer to the
+      %a{href: "https://devhints.io/capybara", target: "_blank"} Capybara cheat sheet
+      and
+      %strong use Capybara
+      %em (via your terminal)
+      to instruct the automated browser to click on the buttons below.
+  %hr
 
--# %section
--#   %hgroup
--#     %h3.section-title Buttons
--#     %h4 You can make Capybara click on these buttons by using their unique values! Check the Capybara documentation (or cheat sheet) to see if you can find a command to click on these buttons.
--# %pre.line-numbers.language-html
--#   %code
--#     :preserve
--#       <div class="grid">
--#       <button id="button-one">Click me!</button>
--#       <button id="button-two">Click on me too!</button>
--#       </div>
+%section
+  %hgroup
+    %h3.section-title Buttons
+    %h4 You can make Capybara click on these buttons by using their unique values! Check the Capybara documentation (or cheat sheet) to see if you can find a command to click on these buttons.
+%pre.line-numbers.language-html
+  %code
+    :preserve
+      <div class="grid">
+      <button id="button-one">Click me!</button>
+      <button id="button-two">Click on me too!</button>
+      </div>
 
--#   .grid
--#     %button{ id: "button-one"} Click me!
--#     %button{ id: "button-two"} Click on me too!
+  .grid
+    %button{ id: "button-one"} Click me!
+    %button{ id: "button-two"} Click on me too!
 
--#   %details
--#     %summary.answer-shield Want to see if we got the same answer? Click here!
--#     = haml :"partials/_tips", locals: { code_tip: "pry(main)> click_button('Click me!')" }
--#   %hr
+  %details
+    %summary.answer-shield Want to see if we got the same answer? Click here!
+    = haml :"partials/_tips", locals: { code_tip: "pry(main)> click_button('Click me!')" }
+  %hr
 
--# %section
--#   %hgroup
--#     %h3.section-title Buttons (different IDs)
--#     %p
--#       %span.outer-highlight
--#         HTML elements
--#       (such as buttons), can have an
--#       %span.inner-highlight
--#         %em attribute
--#       called 'id'.
--#     %p
--#       :escaped
--#         <
--#       %span button
--#       :escaped
--#       = surround 'id="', '"' do
--#         %span.inner-highlight coffee
--#       >
+%section
+  %hgroup
+    %h3.section-title Buttons (different IDs)
+    %p
+      %span.outer-highlight
+        HTML elements
+      (such as buttons), can have an
+      %span.inner-highlight
+        %em attribute
+      called 'id'.
+    %p
+      :escaped
+        <
+      %span button
+      :escaped
+      = surround 'id="', '"' do
+        %span.inner-highlight coffee
+      >
 
--#     %p The next two buttons can be targeted by their IDs (there is more than one way to achieve this).
+    %p The next two buttons can be targeted by their IDs (there is more than one way to achieve this).
 
--#     .grid
--#       %button{ id: 'coffee' } Same button, different ID
--#       %button{ id: 'tea'} Same button, different ID
--#   = haml :"partials/_tips", locals: { code_tip: "pry(main)> click_on({id: 'coffee'})" }
--#   %hr
+    .grid
+      %button{ id: 'coffee' } Same button, different ID
+      %button{ id: 'tea'} Same button, different ID
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> click_on({id: 'coffee'})" }
+  %hr
 
--# %section
--#   %h3.section-title Buttons (different classes)
--#   %p
--#     These buttons can be targeted by their classes, using the
--#     %span.inner-highlight
--#       %em find
--#     command:
+%section
+  %h3.section-title Buttons (different classes)
+  %p
+    These buttons can be targeted by their classes, using the
+    %span.inner-highlight
+      %em find
+    command:
 
--#   .grid
--#     %button.london  Same button, different class
--#     %button.barcelona  Same button, different class
+  .grid
+    %button.london  Same button, different class
+    %button.barcelona  Same button, different class
 
--# %p
--#   Look at using Capybara's
--#   %a{href: 'https://rubydoc.info/github/jnicklas/capybara/Capybara/Node/Finders:find'}
--#     'find' syntax
--#   and use the name of the
--#   %span.outer-highlight
--#     %em html element
--#   along with the name of the
--#   %span.inner-highlight
--#     %em class,
--#   you can be very specific about which button you are referring to:
+%p
+  Look at using Capybara's
+  %a{href: 'https://rubydoc.info/github/jnicklas/capybara/Capybara/Node/Finders:find'}
+    'find' syntax
+  and use the name of the
+  %span.outer-highlight
+    %em html element
+  along with the name of the
+  %span.inner-highlight
+    %em class,
+  you can be very specific about which button you are referring to:
 
--#   %p
--#     :escaped
--#       <
--#     %span.outer-highlight button
--#     :escaped
--#     = surround 'class="', '"' do
--#       %span.inner-highlight london
--#     >
+  %p
+    :escaped
+      <
+    %span.outer-highlight button
+    :escaped
+    = surround 'class="', '"' do
+      %span.inner-highlight london
+    >
 
--#   = haml :"partials/_tips", locals: { code_tip: "pry(main)> find('button.london').click" }
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> find('button.london').click" }
 
--#   %p
--#     When you've got the code in the example working, see if you can figure out how to click on the second button.
+  %p
+    When you've got the code in the example working, see if you can figure out how to click on the second button.
 
--#   %blockquote
--#     Can you adapt the previous syntax you used to find a button by it's ID, to achieve the same result here? Tip: refresh the page to reset the button states!
+  %blockquote
+    Can you adapt the previous syntax you used to find a button by it's ID, to achieve the same result here? Tip: refresh the page to reset the button states!
 
--#   %hr
+  %hr
 
--# %section
--#   %h3.section-title Buttons (identical values)
--#   %p Here you can see what a potential minefield this might be. Some of these buttons we don't want to click on. Try to have Capybara click on some of these buttons by their values. What error do you get?
+%section
+  %h3.section-title Buttons (identical values)
+  %p Here you can see what a potential minefield this might be. Some of these buttons we don't want to click on. Try to have Capybara click on some of these buttons by their values. What error do you get?
 
--# .grid
--#   %div.banana
--#     %button.do-not-click  💀 Don't click on me please 💀
--#     %button  Same button, different div
--#   %div.apple
--#     %button.do-not-click  💀 Don't click on me please 💀
--#     %button  Same button, different div
+.grid
+  %div.banana
+    %button.do-not-click  💀 Don't click on me please 💀
+    %button  Same button, different div
+  %div.apple
+    %button.do-not-click  💀 Don't click on me please 💀
+    %button  Same button, different div
 
--#   %p
--#     Look at using Capybara's
--#     %a{href: 'https://www.rubydoc.info/github/jnicklas/capybara/Capybara%2FSession:within'}
--#       'within' syntax
--#     and use the name of the
--#     %span.outer-highlight
--#       %em element
--#     along with the name of the
--#     %span.inner-highlight
--#       %em class
--#     you can be very specific about which button you are referring to:
+  %p
+    Look at using Capybara's
+    %a{href: 'https://www.rubydoc.info/github/jnicklas/capybara/Capybara%2FSession:within'}
+      'within' syntax
+    and use the name of the
+    %span.outer-highlight
+      %em element
+    along with the name of the
+    %span.inner-highlight
+      %em class
+    you can be very specific about which button you are referring to:
 
--#   %p
--#     :escaped
--#       <
--#     %span.outer-highlight div
--#     :escaped
--#     = surround 'class="', '"' do
--#       %span.inner-highlight banana
--#     >
+  %p
+    :escaped
+      <
+    %span.outer-highlight div
+    :escaped
+    = surround 'class="', '"' do
+      %span.inner-highlight banana
+    >
 
--#   = haml :"partials/_tips", locals: { code_tip: "pry(main)> within('div.banana') do\n  click_button(\"Same button, different div\")\nend" }
+  = haml :"partials/_tips", locals: { code_tip: "pry(main)> within('div.banana') do\n  click_button(\"Same button, different div\")\nend" }
 
--#   %p
--#     When you've got the code in the example working, see if you can figure out how to click on the second button.
+  %p
+    When you've got the code in the example working, see if you can figure out how to click on the second button.
 
--#   %blockquote
--#     Can you click on these buttons using the 'find' technique from before,
--#     %em without
--#     clicking on the "Don't click on me please" buttons? If so, why did that work? What happens if we shake up the previous button set?
+  %blockquote
+    Can you click on these buttons using the 'find' technique from before,
+    %em without
+    clicking on the "Don't click on me please" buttons? If so, why did that work? What happens if we shake up the previous button set?
 
--#   .grid
--#     %div.orange
--#       %button  I want to be clicked!
--#       %button.do-not-click  💀 Don't click on me please 💀
--#     %div.mango
--#       %button  I want to be clicked!
--#       %button.do-not-click  💀 Don't click on me please 💀
--#   %hr
+  .grid
+    %div.orange
+      %button  I want to be clicked!
+      %button.do-not-click  💀 Don't click on me please 💀
+    %div.mango
+      %button  I want to be clicked!
+      %button.do-not-click  💀 Don't click on me please 💀
+  %hr
 
 
 %section

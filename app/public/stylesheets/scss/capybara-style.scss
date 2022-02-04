@@ -51,7 +51,7 @@ button {
   color: $fuschia;
 }
 
-.section-title {
+.section-title, .instructions {
     background: $fuschia;  /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, $cornflower, $sky);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, $cornflower, $sky); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
@@ -61,7 +61,6 @@ button {
     margin-bottom: 1em;
 
     h3, h4 {
-      // color: #2f4866;
       color: white;
     }
 
@@ -75,11 +74,11 @@ button {
 }
 
 .section-title:before {
-    content: "🎽 WORKOUT: ";
+  content: "🎽 WORKOUT: ";
 }
 
 .section-title:after {
-  content: " 🎽";
+content: " 🎽";
 }
 
 .capybara-targets {
@@ -107,4 +106,8 @@ details {
     content: "💡 ";
     font-style: normal;
   }
+}
+
+.heading {
+  text-align: center;
 }
