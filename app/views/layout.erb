@@ -3,9 +3,10 @@
     <title>Capybara Workout</title>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <link href="/stylesheets/css/pico.css" rel="<%= :stylesheet %>" type="<%= :"text/css" %>">
-    <link href="/stylesheets/css/prism.css" rel="<%= :stylesheet %>" type="<%= :"text/css" %>">
-    <link href="/stylesheets/css/capybara-style.css" rel="<%= :stylesheet %>" type="<%= :"text/css" %>">
+    <link href="/stylesheets/css/pico.css" rel="stylesheet" type="text/css"/>
+    <link href="/stylesheets/css/prism.css" rel="stylesheet" type="text/css"/>
+    <link href="/stylesheets/css/capybara-style.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet" type="text/css"/>
     <link href="favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
     <link href="favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
     <link href="favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
@@ -15,22 +16,14 @@
     <meta content="#ffffff" name="theme-color"/>
   </head>
   <body class="container">
-    <section>
-      <div class="heading">
-        <img class="capybara-logo" src="/images/capybara.png"/>
-        <% if @your_name && @coach_name %>
-          <h1 class="page-title">Capybara Workout</h1>
-        <% else %>
-          <h1 class="page-title">Welcome to The Capybara Workout</h1>
-        <% end %>
-        <img class="capybara-logo" src="/images/capybara.png"/>
-      </div>
-    </section>
+    <div class="heading">
+      <img class="capybara-logo" src="/images/CapybaraWorkout.jpg"/>
+    </div>
     <div>
       <%= yield %>
     </div>
     <footer>
-      <a href='https://www.freepik.com/vectors/nature'>Capybara vector created by www.freepik.com</a>
+      <a href='https://www.freepik.com/vectors/nature'>Vectors created by freepik</a>
       <script src="/scripts/capyscript.js" type="text/javascript"></script>
       <script src="/scripts/prism.js" type="text/javascript"></script>
     </footer>
