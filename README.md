@@ -11,6 +11,12 @@ Choose between:
     ruby app/app.rb # runs on http://localhost:4567
 ```
 
+This will bring you to the instructions for interacting with the app. Then once you have IRB working with Capybara and you're ready to start the activity:
+
+```bash
+    visit('http://localhost:<port>/workout')
+```
+
 ## Development
 
 To run tests, I recommend installing [chromedriver](https://formulae.brew.sh/cask/chromedriver):
