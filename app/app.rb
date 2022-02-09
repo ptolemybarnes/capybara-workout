@@ -4,21 +4,22 @@ require 'tilt/haml'
 enable :sessions
 
 get '/' do
-  haml :index, layout: :layout
+  erb :instructions, layout: :layout
 end
 
 get '/workout' do
-  haml :workout, layout: :layout
+  erb :workout, layout: :layout
 end
 
-post '/madlibs' do
-  session[:name] = params[:name]
-  redirect '/workout_two'
+post '/finish' do
+  session[:your_name] = params[:your_name]
+  session[:coach_name] = params[:coach_name]
+  redirect '/finish'
 end
 
-get '/workout_two' do
-  @name = session[:name]
-  puts @name
-  haml :workout_two, layout: :layout
+get '/finish' do
+  @your_name = session[:your_name]
+  @coach_name = session[:coach_name]
+  erb :finish, layout: :layout
 end
 

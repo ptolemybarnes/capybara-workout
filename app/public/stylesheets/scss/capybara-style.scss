@@ -1,0 +1,146 @@
+$fuschia: #ff0081;
+$wheat: #fdf9ed;
+$leaf: #678e43;
+$pink: #D16BA5;
+$lilac: #aa8fd8;
+$purple: #731999;
+$cornflower: #86A8E7;
+$sky: #52cffe;
+$mint: #5FFBF1;
+$button-bg: $fuschia;
+$button-text-color: #ffffff;
+$baby-blue: #f8faff;
+
+@keyframes colorPulse {
+    0% {background-color: $pink;}
+  25% {background-color: $lilac;}
+  50% {background-color: $cornflower;}
+  75% {background-color: $sky;}
+  100% {background-color: $mint;}
+}
+
+html {
+  background-color:$wheat;
+}
+
+.center {
+  text-align: center;
+}
+
+button {
+  background-color: $button-bg;
+  border: none;
+}
+
+.do-not-click {
+  background-color: black !important;
+}
+
+.page-title {
+  display: inline-block;
+}
+
+.clicked {
+  animation: colorPulse 1s infinite alternate;
+}
+
+.outer-highlight {
+  color: $lilac;
+}
+
+.inner-highlight {
+  color: $fuschia;
+}
+
+.section-title, .instructions, .congratulations {
+    background: $leaf;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $cornflower, $sky);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $cornflower, $sky); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-align: center;
+    font-size: 2em;
+    text-transform: capitalize;
+    padding: 1em;
+    margin-bottom: 1em;
+    color: $purple;
+
+    h3 {
+      margin-bottom: 0.5em;
+    }
+
+    h4 {
+      font-style: italic;
+    }
+}
+
+.instructions {
+  font-family: 'Shrikhand';
+  letter-spacing: 0.04em;
+}
+
+.section-title, .notice, .congratulations {
+  font-family: 'Barlow Condensed';
+}
+
+.notice {
+  color: $fuschia;
+}
+
+.congratulations {
+  background: none;
+  background-color: $fuschia;
+  color: white;
+}
+
+.congratulations:before {
+  content: "🎉 "
+}
+
+.congratulations:after {
+  content: " 🎉"
+}
+
+.section-title:before {
+  font-family: 'Barlow Condensed';
+  font-weight: 700;
+  text-transform: capitalize;
+  color: white;
+  letter-spacing: 0px;
+  content: "🎽 WORKOUT: ";
+}
+
+.section-title:after {
+content: " 🎽";
+}
+
+.capybara-targets {
+  padding: 1em 0;
+  border-top: dotted 2px $cornflower;
+  border-bottom: dotted 2px $cornflower;
+  margin-bottom: 2em;
+
+  button {
+    margin: 0;
+  }
+}
+
+pre[class*=language-] {
+  margin: 0 0 1.5em 0;
+}
+
+details {
+  summary {
+    margin-top: 2em;
+    font-style: italic;
+    font-size: 0.75em;
+    text-align: center;
+    font-style: normal;
+  }
+}
+
+.heading {
+  text-align: center;
+}
+
+footer {
+  font-size: 0.5em;
+}
