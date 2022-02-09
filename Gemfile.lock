@@ -83,5 +83,8 @@ DEPENDENCIES
   webdrivers (~> 5.0)
   webrick
 
+RUBY VERSION
+   ruby 3.0.1p64
+
 BUNDLED WITH
-   2.2.11
+   2.2.15

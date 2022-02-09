@@ -16,7 +16,7 @@ describe "Capybara Workout", type: :feature, js: true do
   end
 
   it "Clicks on a button using a specific ID" do
-    click_on({id: 'coffee'})
+    find_by_id('coffee').click
 
     expect(page).to have_content 'You clicked me!'
   end
@@ -28,7 +28,7 @@ describe "Capybara Workout", type: :feature, js: true do
   end
 
   it "Clicks on a button within a specific element" do
-    within('div.banana') do
+    within('.banana') do
       click_button("Same button, different div")
     end
 

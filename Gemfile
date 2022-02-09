@@ -1,5 +1,6 @@
-# A sample Gemfile
 source 'https://rubygems.org'
+
+ruby "3.0.1"
 
 gem 'webrick'
 gem 'sinatra'
