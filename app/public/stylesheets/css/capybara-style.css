@@ -1,39 +1,53 @@
 @charset "UTF-8";
 @keyframes colorPulse {
   0% {
-    background-color: #D16BA5; }
+    background-color: #D16BA5;
+  }
   25% {
-    background-color: #aa8fd8; }
+    background-color: #aa8fd8;
+  }
   50% {
-    background-color: #86A8E7; }
+    background-color: #86A8E7;
+  }
   75% {
-    background-color: #52cffe; }
+    background-color: #52cffe;
+  }
   100% {
-    background-color: #5FFBF1; } }
+    background-color: #5FFBF1;
+  }
+}
 html {
-  background-color: #fdf9ed; }
+  background-color: #fdf9ed;
+}
 
 .center {
-  text-align: center; }
+  text-align: center;
+}
 
 button {
   background-color: #ff0081;
-  border: none; }
+  border: none;
+}
 
 .do-not-click {
-  background-color: black !important; }
+  background-color: black !important;
+}
 
 .page-title {
-  display: inline-block; }
+  display: inline-block;
+}
 
 .clicked {
-  animation: colorPulse 1s infinite alternate; }
+  animation: colorPulse 1s infinite alternate;
+}
 
 .outer-highlight {
-  color: #aa8fd8; }
+  color: #aa8fd8;
+}
 
 .inner-highlight {
-  color: #ff0081; }
+  color: #ff0081;
+}
 
 .section-title, .instructions, .congratulations {
   background: #678e43;
@@ -47,66 +61,83 @@ button {
   text-transform: capitalize;
   padding: 1em;
   margin-bottom: 1em;
-  color: #731999; }
-  .section-title h3, .instructions h3, .congratulations h3 {
-    margin-bottom: 0.5em; }
-  .section-title h4, .instructions h4, .congratulations h4 {
-    font-style: italic; }
+  color: #731999;
+}
+.section-title h3, .instructions h3, .congratulations h3 {
+  margin-bottom: 0.5em;
+}
+.section-title h4, .instructions h4, .congratulations h4 {
+  font-style: italic;
+}
 
 .instructions {
-  font-family: 'Shrikhand';
-  letter-spacing: 0.04em; }
+  font-family: "Shrikhand";
+  letter-spacing: 0.04em;
+}
 
 .section-title, .notice, .congratulations {
-  font-family: 'Barlow Condensed'; }
+  font-family: "Barlow Condensed";
+}
 
 .notice {
-  color: #ff0081; }
+  color: #ff0081;
+}
 
 .congratulations {
   background: none;
   background-color: #ff0081;
-  color: white; }
+  color: white;
+}
 
 .congratulations:before {
-  content: "🎉 "; }
+  content: "🎉 ";
+}
 
 .congratulations:after {
-  content: " 🎉"; }
+  content: " 🎉";
+}
 
 .section-title:before {
-  font-family: 'Barlow Condensed';
+  font-family: "Barlow Condensed";
   font-weight: 700;
   text-transform: capitalize;
   color: white;
   letter-spacing: 0px;
-  content: "🎽 WORKOUT: "; }
+  content: "🎽 WORKOUT: ";
+}
 
 .section-title:after {
-  content: " 🎽"; }
+  content: " 🎽";
+}
 
 .capybara-targets {
   padding: 1em 0;
   border-top: dotted 2px #86A8E7;
   border-bottom: dotted 2px #86A8E7;
-  margin-bottom: 2em; }
-  .capybara-targets button {
-    margin: 0; }
+  margin-bottom: 2em;
+}
+.capybara-targets button {
+  margin: 0;
+}
 
 pre[class*=language-] {
-  margin: 0 0 1.5em 0; }
+  margin: 0 0 1.5em 0;
+}
 
 details summary {
+  margin-top: 2em;
+  font-style: italic;
   font-size: 0.75em;
-  font-style: italic; }
-details summary:before {
-  content: "💡 ";
-  font-style: normal; }
+  text-align: center;
+  font-style: normal;
+}
 
 .heading {
-  text-align: center; }
+  text-align: center;
+}
 
 footer {
-  font-size: 0.5em; }
+  font-size: 0.5em;
+}
 
 /*# sourceMappingURL=capybara-style.css.map */

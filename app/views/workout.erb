@@ -36,7 +36,7 @@
     <button>Click on me too!</button>
   </div>
   <details>
-    <summary class="answer-shield">Want to see if we got the same answer? Click here!</summary>
+    <summary class="answer-shield">Did you find a solution? If not, click here for a hint on how to click on <em>one</em> of the elements.</summary>
     <%= haml :"partials/_tips", locals: { code_tip: "click_button('Click me!')" } %>
   </details>
 </section>
@@ -59,7 +59,7 @@
     <button id="tea">Same button, different ID</button>
   </div>
   <details>
-    <summary class="answer-shield">Want to see if we got the same answer? Click here!</summary>
+    <summary class="answer-shield">Did you find a solution? If not, click here for a hint on how to click on <em>one</em> of the elements.</summary>
     <%= haml :"partials/_tips", locals: { code_tip: "find_by_id('coffee').click" } %>
   </details>
 </section>
@@ -81,7 +81,7 @@
     <button class="barcelona">Same button, different class</button>
   </div>
   <details>
-    <summary class="answer-shield">Want to see if we got the same answer? Click here!</summary>
+    <summary class="answer-shield">Did you find a solution? If not, click here for a hint on how to click on <em>one</em> of the elements.</summary>
     <%= haml :"partials/_tips", locals: { code_tip: "find('button.london').click" } %>
   </details>
 </section>
@@ -118,7 +118,7 @@
     </div>
   </div>
   <details>
-    <summary class="answer-shield">Want to see if we got the same answer? Click here!</summary>
+    <summary class="answer-shield">Did you find a solution? If not, click here for a hint on how to click on <em>one</em> of the elements.</summary>
     <%= haml :"partials/_tips", locals: { code_tip: "within('.banana') do\n  click_button(\"Same button, different div\")\nend" } %>
   </details>
 </section>
@@ -159,7 +159,7 @@
     </fieldset>
   </div>
   <details>
-    <summary class="answer-shield">Want to see if we got the same answer? Click here!</summary>
+    <summary class="answer-shield">Did you find a solution? If not, click here for a hint on how to click on <em>one</em> of the elements.</summary>
     <%= haml :"partials/_tips", locals: { code_tip: "check('first-checkbox')" } %>
   </details>
 </section>
@@ -210,7 +210,7 @@
     </form>
   </div>
   <details>
-    <summary class="answer-shield">Want to see if we got the same answer? Click here!</summary>
+    <summary class="answer-shield">Did you find a solution? If not, click here for a hint.</summary>
     <%= haml :"partials/_tips", locals: { code_tip: "fill_in('your_name', { with: 'your name!' })\nfill_in('coach_name', { with: 'your coach&#39;s name!' })\nclick_button('Submit')" } %>
   </details>
 </section>
