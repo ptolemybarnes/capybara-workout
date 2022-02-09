@@ -119,7 +119,7 @@
   </div>
   <details>
     <summary class="answer-shield">Want to see if we got the same answer? Click here!</summary>
-    <%= haml :"partials/_tips", locals: { code_tip: "within('div.banana') do\n  click_button(\"Same button, different div\")\nend" } %>
+    <%= haml :"partials/_tips", locals: { code_tip: "within('.banana') do\n  click_button(\"Same button, different div\")\nend" } %>
   </details>
 </section>
 <section>
@@ -131,12 +131,12 @@
     <code>
       &lt;div class=&quot;grid&quot;&gt;
         &lt;fieldset&gt;
-          &lt;label&gt;
-            &lt;input name=&quot;first-checkbox&quot; type=&quot;checkbox&quot;&gt;
+          &lt;label for=&quot;first-checkbox&quot;&gt;
+            &lt;input id=&quot;first-checkbox&quot; name=&quot;first-checkbox&quot; type=&quot;checkbox&quot;&gt;
             Check me!
           &lt;/label&gt;
-          &lt;label&gt;
-            &lt;input name=&quot;second-checkbox&quot; type=&quot;checkbox&quot;&gt;
+          &lt;label for=&quot;second-checkbox&quot;&gt;
+            &lt;input id=&quot;second-checkbox&quot; name=&quot;second-checkbox&quot; type=&quot;checkbox&quot;&gt;
             And me!
           &lt;/label&gt;
         &lt;/fieldset&gt;
@@ -148,10 +148,14 @@
   </p>
   <div class="grid">
     <fieldset>
-      <label>
-        <input name="first-checkbox" type="checkbox">Check me!</label>
-      <label>
-        <input name="second-checkbox" type="checkbox">And me!</label>
+      <label for="first-checkbox">
+        <input id="first-checkbox" name="first-checkbox" type="checkbox">
+        Check me!
+      </label>
+      <label for="second-checkbox">
+        <input id="second-checkbox" name="second-checkbox" type="checkbox">
+        And me!
+      </label>
     </fieldset>
   </div>
   <details>
