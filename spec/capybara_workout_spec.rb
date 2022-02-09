@@ -10,7 +10,7 @@ describe "Capybara Workout", type: :feature, js: true do
   end
 
   it "Clicks on a button using a specific ID" do
-    click_on({id: 'coffee'})
+    find_by_id('coffee').click
 
     expect(page).to have_content 'You clicked me!'
   end
