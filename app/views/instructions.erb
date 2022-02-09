@@ -9,7 +9,7 @@
     </code>
   </pre>
   <p>
-    Create a Gemfile with the following contents, and run 'bundle install':
+    Create a Gemfile with the following contents:
   </p>
   <pre class="line-numbers language-ruby code-snippet-margin">
     <code>
@@ -19,24 +19,27 @@
     </code>
   </pre>
   <p>
-    Start an IRB session, and run the following commands
+    As with any Gemfile, run <mark><strong>bundle install.</strong></mark>
+  </p>
+  <p>
+    Once the gems have successfully installed, start an IRB session, and run the following commands
   </p>
   <pre class="line-numbers language-ruby code-snippet-margin">
     <code>
-        3.0.1 :001 > require 'capybara'
+      3.0.1 :001 > require 'capybara'
       => true
-        3.0.1 :001 > require 'webdrivers/chromedriver'
+      3.0.1 :001 > require 'webdrivers/chromedriver'
       => true
-        3.0.1 :001 > require 'capybara/dsl'
+      3.0.1 :001 > require 'capybara/dsl'
       => true
-        3.0.1 :001 > extend Capybara::DSL
+      3.0.1 :001 > extend Capybara::DSL
       extending Capybara::DSL in the global scope is not recommended!
       => main
-        3.0.1 :001 > Capybara.default_driver = :selenium_chrome
+      3.0.1 :001 > Capybara.default_driver = :selenium_chrome
       => :selenium_chrome
       # After running the following line, (which is a Capybara method)
       # a chrome window should automatically open!
-        3.0.1 :001 > visit('https://capybara-workout.herokuapp.com/workout')
+      3.0.1 :001 > visit('https://capybara-workout.herokuapp.com/workout')
     </code>
   </pre>
 </section>
