@@ -1,108 +1,59 @@
-describe 'Capybara Workout', js: true do
-
-  scenario 'starting the workout' do
-    visit '/'
-
-    click_link "Start Workout!"
-    expect(current_path).to eq "/workout"
+describe "Capybara Workout", type: :feature, js: true do
+  before :each do
+    visit(workout_path)
   end
 
-  before do
-    visit workout_path
+  it "Clicks on a button" do
+    click_button 'Click me!'
+
+    expect(page).to have_content 'You clicked me!'
   end
 
-  context 'clicking buttons with unique text' do
-    
-    scenario "first button" do
-      click_button "Click me!"
-      expect(page).to have_text "Well done!"
+  it "Clicks on a button using a specific ID" do
+    find_by_id('coffee').click
+
+    expect(page).to have_content 'You clicked me!'
+  end
+
+  it "Clicks on a button using a specific ID" do
+    find_by_id('coffee').click
+
+    expect(page).to have_content 'You clicked me!'
+  end
+
+  it "Clicks on a button using a specific class" do
+    find('button.london').click
+
+    expect(page).to have_content 'You clicked me!'
+  end
+
+  it "Clicks on a button within a specific element" do
+    within('.banana') do
+      click_button("Same button, different div")
     end
 
-    scenario "second button" do
-      click_button "Click on me too!"
-      expect(page).to have_text "Success!"
+    expect(page).to have_content 'You clicked me!'
+  end
+
+  it "Clicks on a checkbox" do
+    check('first-checkbox')
+
+    expect(page).to have_content 'You clicked me!'
+  end
+
+  it "Submits data via a form" do
+    within("form") do
+      fill_in 'your_name', with: 'Tommy'
+      fill_in 'coach_name', with: 'Roi'
+      click_button 'Submit'
     end
 
+    assert_current_path('/finish')
+    expect(page).to have_content 'Congratulations Tommy — You Finished!'
+    expect(page).to have_content 'Your coach Roi is proud of you!'
   end
-
-  scenario 'choosing radio buttons by name' do
-    
-    within(task_divs(:second)) do
-      check("first")
-
-      expect(page).to have_text "Well done!"
-    end
-  end
-
-  context 'using within syntax' do
-
-    scenario 'raises an error unless you specify within', tag: :meta do
-      expect { click_button "We're the same" }.to raise_error Capybara::Ambiguous
-    end
-
-    scenario 'passes when using within syntax' do
-      within task_divs(:third) do
-        click_button "We're the same...but in different sections"
-        expect(page).to have_text "Nice one!"
-      end
-    end
-
-  end
-
-  scenario 'targeting element by ids' do
-
-    ['left', 'right'].each do |button_id|
-      within task_divs(:fifth) do
-        click_button(button_id)
-        expect(page).to have_text "Well done, you clicked the button with an ID"
-      end
-    end
-
-  end
-
-  scenario 'targeting an element by class' do
-    ['left', 'right'].each do |button_class|
-      within task_divs(:sixth) do
-        page.find("button." + button_class).click
-        expect(page).to have_text "Well done, you clicked the button tagged with the '#{button_class}' class"
-      end
-    end
-  end
-
-  context 'madlibs' do
-
-    scenario 'filling in the madlibs form' do
-      visit workout_path
-
-      within(task_sections(:madlibs)) do 
-        {
-          name: "Ptolemy",
-          age:  "27",
-          gender: "male",
-          'favourite beverage' => 'coffee'
-        }.each do |input, value|
-          fill_in input.to_s, with: value
-        end
-        click_button "Submit"
-      end
-
-      expect(current_path).to eq "/workout_two"
-      expect(page).to have_text("Ptolemy!")
-    end
-
-  end
-
-  def workout_path
-    '/workout'
-  end
-
-  def task_divs number
-    "div." + number.to_s
-  end
-
-  def task_sections klass
-    "section." + klass.to_s
-  end
-
 end
 
+def workout_path
+  '/workout'
+end

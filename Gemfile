@@ -1,14 +1,13 @@
-# A sample Gemfile
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
+ruby "3.0.1"
+
+gem 'webrick'
 gem 'sinatra'
 gem 'haml'
 
 group :development, :test do
-  gem "rspec"
+  gem 'rspec'
   gem 'capybara'
-  gem 'launch'
-  gem 'capybara-webkit'
-  gem 'shotgun'
-  gem 'byebug'
+  gem 'webdrivers', '~> 5.0', require: false
 end
